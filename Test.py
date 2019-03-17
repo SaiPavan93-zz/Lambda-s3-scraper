@@ -27,10 +27,10 @@ def main(event,context):
     #logging.info(event)
     key=event["Records"][0]["s3"]["object"]["key"]
     bucket=event["Records"][0]["s3"]["bucket"]["name"]
-    s3client=boto3.client('s3',aws_access_key_id="AKIAIFRF5AC5Y6F2NU5A",
-         aws_secret_access_key= "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")
-    s3 = boto3.resource('s3', aws_access_key_id="AKIAIFRF5AC5Y6F2NU5A",
-                        aws_secret_access_key="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")
+    s3client=boto3.client('s3',aws_access_key_id="",
+         aws_secret_access_key= "")
+    s3 = boto3.resource('s3', aws_access_key_id="",
+                        aws_secret_access_key="")
     s3.Object(bucket,key).download_file("/tmp/keywords.txt")
     with open("/tmp/keywords.txt",'rb') as f:
         text=f.read().decode('utf-8')
